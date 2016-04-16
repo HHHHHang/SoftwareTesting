@@ -1,6 +1,8 @@
 /**
  * Created by Hang on 16/4/13.
  */
+
+
 public class MonthBill {
     private MonthInfo monthInfo = null;//当月缴费信息
     private double lastYearBill = 0;//去年未缴费金额
@@ -32,7 +34,9 @@ public class MonthBill {
         if(currentTimes > this.monthInfo.getMaxTimes()){//超过最大容许次数则没有折扣
             this.monthInfo.setDiscount(1);
         }
-        return monthInfo.getBasicCost() + monthInfo.getCostPerMin() * monthInfo.getMinutes() * monthInfo.getDiscount();
+        double temp =  monthInfo.getBasicCost() + monthInfo.getCostPerMin() * monthInfo.getMinutes() * monthInfo.getDiscount() + lastYearBill * 0.05;
+        return (Math.round(temp * 1000) / 1000.0);
+        //return Double.parseDouble(String.format("%.12f",temp));
     }
 
 
