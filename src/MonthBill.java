@@ -1,14 +1,9 @@
-/**
- * Created by Hang on 16/4/13.
- */
-
-
 public class MonthBill {
     private MonthInfo monthInfo = null;//当月缴费信息
     private double lastYearBill = 0;//去年未缴费金额
     private int currentTimes = 0;//本年度累计未缴费次数
     private boolean dataError = false;
-    private double total = 0;
+    private double total = 0;//当月缴费金额
 
     //Constructor
     public MonthBill(){
@@ -23,14 +18,20 @@ public class MonthBill {
         this.monthInfo = new MonthInfo(minutes);
         this.lastYearBill = lastYearBill;
         this.currentTimes = currentTimes;
-        this.total = getMonthBill();
         this.dataError = false;
-        if(currentTimes < 0 || lastYearBill < 0){
+        if(currentTimes < 0 || currentTimes > 11 || lastYearBill < 0){
             this.dataError = true;
         }
+        if(this.monthInfo.isDataError()){
+            this.dataError = true;
+        }
+        this.total = getMonthBill();
     }
 
     public double getMonthBill(){
+        if(this.dataError){
+            return -1;
+        }
         if(currentTimes > this.monthInfo.getMaxTimes()){//超过最大容许次数则没有折扣
             this.monthInfo.setDiscount(1);
         }

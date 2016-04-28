@@ -3,19 +3,13 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import javax.xml.crypto.Data;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.xml.bind.JAXBIntrospector.getValue;
 
-/**
- * Created by Hang on 16/4/16.
- */
 public class readXls{
     public static List<DataForm> readXls() throws IOException{
         String fileName = "test.xls";

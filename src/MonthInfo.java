@@ -1,6 +1,3 @@
-/**
- * Created by Hang on 16/4/13.
- */
 public class MonthInfo {
     private int BasicCost = 25;//基本月租费用
     private double CostPerMin = 0.15;//每分钟通话费用
@@ -8,7 +5,7 @@ public class MonthInfo {
     private int maxTimes = 0;//最大容许不按时缴费次数
     private double discount = 1;//折扣
 //    private double lastYearBill = 0;//去年未缴金额
-    private boolean dataError = false;//判断数据是否错误
+    private boolean dataError = false;//判断数据是否错误 false为无误
 
     //Constructor
     public MonthInfo(){

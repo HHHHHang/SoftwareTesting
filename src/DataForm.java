@@ -1,6 +1,3 @@
-/**
- * Created by Hang on 16/4/16.
- */
 public class DataForm {
     private int num = 0;
     private double lastYearBill = 0;
