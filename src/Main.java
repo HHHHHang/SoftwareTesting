@@ -1,4 +1,6 @@
 
+import org.junit.Test;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +8,13 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-       // DataForm dataForm = new DataForm();
+    public static void main(String[] args) throws Exception {
+      Desktop desktop = new Desktop();
+    }
+
+    //junit Test
+    @Test
+    public void Test() throws Exception{
         List<DataForm> list = new ArrayList<DataForm>();
         List<DataForm> newList = new ArrayList<DataForm>();
         list =  readXls.readXls();
@@ -20,7 +27,10 @@ public class Main {
             System.out.println(dataForm1.getResult());
             newList.add(dataForm1);
         }
+<<<<<<< HEAD
         writeXls.writXls(newList);
+=======
+>>>>>>> f580cbbc9d7158e8d5ac570804910fe6a25a5a07
     }
 
 
