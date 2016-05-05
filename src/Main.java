@@ -7,8 +7,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
+        //支付界面
         Desktop desktop = new Desktop();
-       // DataForm dataForm = new DataForm();
+
+        //验证数据
         List<DataForm> list = new ArrayList<DataForm>();
         List<DataForm> newList = new ArrayList<DataForm>();
         list =  readXls.readXls("test.xls");
