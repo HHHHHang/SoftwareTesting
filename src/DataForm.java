@@ -39,7 +39,7 @@ public class DataForm {
     }
 
     public void result(){
-        if(this.expectedBill == this.actualBill){
+        if((this.expectedBill - this.actualBill <= 0.001)){
             this.result = "pass";
         }else{
             this.result = "error";
