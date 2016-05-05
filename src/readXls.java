@@ -11,8 +11,8 @@ import java.util.List;
 
 
 public class readXls{
-    public static List<DataForm> readXls() throws IOException{
-        String fileName = "test.xls";
+    public static List<DataForm> readXls(String fileName) throws IOException{
+//        String fileName = "test.xls";
         InputStream is = new FileInputStream(fileName);
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
         List<DataForm> list = new ArrayList<DataForm>();
@@ -63,6 +63,44 @@ public class readXls{
         }
         return list;
     }
+
+    public static List readPay() throws IOException{
+        String fileName = "pay.xls";
+        InputStream is = new FileInputStream(fileName);
+        HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
+        List list = new ArrayList();
+
+        // 循环工作表Sheet
+        for(int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++){
+            HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
+            if(hssfSheet == null){
+                continue;
+            }
+            // 循环行Row
+            for(int rowNum = 1; rowNum <= hssfSheet.getLastRowNum(); rowNum++){
+                HSSFRow hssfRow = hssfSheet.getRow(rowNum);
+                if(hssfRow == null){
+                    continue;
+                }
+
+                // 5是否缴费
+                HSSFCell num = hssfRow.getCell(0);
+//                System.out.println(getValue(num));
+                if(num == null){
+                    continue;
+                }
+                HSSFCell Pay = hssfRow.getCell(5);
+                if(Pay == null){
+                    continue;
+                }
+                String isPay = getValue(Pay);
+                list.add(isPay);
+            }
+        }
+        return list;
+
+    }
+
 
     @SuppressWarnings("static-access")
     private static String getValue(HSSFCell hssfCell){

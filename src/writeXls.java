@@ -50,4 +50,27 @@ public class writeXls {
         out.close();
         System.out.println("写入成功!");
     }
+
+    public static void pay(int code) throws IOException {
+        // 创建Excel文档
+        HSSFWorkbook hwb = new HSSFWorkbook(new POIFSFileSystem(
+                new FileInputStream("pay.xls")));
+        // sheet 对应一个工作页
+        HSSFSheet sheet = hwb.getSheet("工作表1");
+        HSSFFont fontGreen = hwb.createFont();
+        HSSFCellStyle styleGreen = hwb.createCellStyle();
+        String names = "实际缴费金额";
+
+        HSSFRow row = sheet.getRow(code + 1);
+        HSSFCell isPay = row.createCell(5);
+        fontGreen.setColor(HSSFColor.GREEN.index);
+        styleGreen.setFont(fontGreen);
+        isPay.setCellValue("是");
+        isPay.setCellStyle(styleGreen);
+        // 创建文件输出流，准备输出电子表格
+        OutputStream out = new FileOutputStream("pay.xls");
+        hwb.write(out);
+        out.close();
+        System.out.println("写入成功!");
+    }
 }
