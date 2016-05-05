@@ -36,11 +36,7 @@ public class DataForm {
     }
 
     public void result(){
-<<<<<<< HEAD
         if(Math.abs(this.expectedBill - this.actualBill) <= 0.001){
-=======
-        if((this.expectedBill - this.actualBill <= 0.001)){
->>>>>>> f580cbbc9d7158e8d5ac570804910fe6a25a5a07
             this.result = "pass";
         }else{
             this.result = "error";
